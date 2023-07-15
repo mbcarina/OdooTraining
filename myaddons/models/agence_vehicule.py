@@ -9,3 +9,4 @@ class AgenceVehicule(models.Model):
     modele = fields.Char('Modele', required=True)
     date_achat = fields.Date("Date d'achat", required=False)
     chauffeur_ids = fields.Many2many('res.partner', string='Chauffeurs')
+    chauufer_note = fields.Char('Modele', required=False)
