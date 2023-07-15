@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="agence_drivers_views_1" model="ir.ui.view">
+        <field name="name">agence.drivers.views.name</field>
+        <field name="model">agence.vehicule</field>
+        <field name="arch" type="xml">
+            <tree string = "Rent Cars">
+                <field name="marque"/>
+                <field name="modele"/>
+                <field name="date_achat"/>
+                <field name="chauffeur_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+    <record id="agence_drivers_action" model="ir.actions.act_window">
+        <field name="name">Cars Managements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <record id="agence_vehicule_action" model="ir.actions.act_window">
+        <field name="name">Cars Managements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="view_id" ref="agence_drivers_views_1"/>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <record id="agence_book_action" model="ir.actions.act_window">
+        <field name="name">Cars Book Managements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <record id="agence_bmw_action" model="ir.actions.act_window">
+        <field name="name">Cars BMW Models</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="domain">[('marque', '=', 'BMW')]</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <record id="agence_toyota_action" model="ir.actions.act_window">
+        <field name="name">Cars Toyota Models</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+       <field name="domain">[('marque', '=', 'TOYOTA')]</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+     <record id="agence_gdriver_action" model="ir.actions.act_window">
+        <field name="name">Agence Drivers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <record id="agence_bdriver_action" model="ir.actions.act_window">
+        <field name="name">Cars Managements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">agence.vehicule</field>
+        <field name="view_mode">tree,kanban,form,pivot,graph</field>
+    </record>
+
+    <menuitem id="agence_base_menu" name="Rent Cars"/>
+    <menuitem id="agence_vehicule_menu" name="Vehicules" parent="agence_base_menu" action="agence_vehicule_action"/>
+    <menuitem id="agence_drivers_menu"  name="Drivers"   parent="agence_base_menu" action="agence_drivers_action"/>
+    <menuitem id="agence_book_menu"     name="Book"   parent="agence_base_menu" action="agence_book_action"/>
+    <menuitem id="agence_bmw_menu"      name="BMW"   parent="agence_vehicule_menu" action="agence_bmw_action"/>
+    <menuitem id="agence_toyota_menu"     name="TOYOTA"   parent="agence_vehicule_menu" action="agence_toyota_action"/>
+    <menuitem id="agence_gdriver_menu"     name="Good Drivers"   parent="agence_drivers_menu" action="agence_gdriver_action"/>
+    <menuitem id="agence_bdriver_menu"     name="Bad Drivers"   parent="agence_drivers_menu" action="agence_bdriver_action"/>
+</odoo>
+
+
